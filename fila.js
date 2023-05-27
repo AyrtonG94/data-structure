@@ -7,15 +7,12 @@ class Queue {
 
 	}
 
-	queue(element) {
-		if (this.isEmpty()) {
-			this.items[this.lowestCount] = element;
-		}
-		this.items[this.count] = element;
-		this.count++;
+	addItem(element) {
+			this.items[this.count] = element;
+			this.count++;
 	}
 
-	enqueue() {
+	removeItem() {
 		if (this.isEmpty()) {
 			return 'A lista está vazia e não há itens para remover';
 		}
@@ -23,37 +20,39 @@ class Queue {
 		delete this.items[this.lowestCount];
 		this.lowestCount++
 		this.count--
+		return 'Item removido com sucesso'
 	}
 	clear() {
 		if (this.isEmpty()) {
-			return 'A lista está vazia'
+			return 'A lista já está vazia';
 		}
 		this.count = 0;
 		this.items = {}
+
+		return 'Lista limpa com sucesso'
 	}
 
 
 	size() {
-		if (this.isEmpty) {
-			return 'A lista está vazia'
-		}
-		return `O tamanho da lista é de ${this.count} elementos`
+		return `A fila tem o total de ${this.count} elementos`
 	}
 
 	peekFirstItem() {
-		if (this.isEmpty) {
-			return 'A lista está vazia'
+		if (this.isEmpty()) {
+			return 'A lista está vazia';
 		}
-		return this.items[this.lowestCount]
+		return `O primeiro item da fila é o ${this.items[this.lowestCount]}`
 	}
 
 	isEmpty() {
 		if (this.count == 0) {
 			return 'A lista está vazia'
 		}
-		else {
-			return `A lista não está vazia e contem um total de ${this.count} elemento(s)`
-		}
 	}
 
 }
+
+const fila = new Queue()
+fila.addItem('Ayrton')
+fila.addItem('gomes')
+console.log(fila.peekFirstItem())
