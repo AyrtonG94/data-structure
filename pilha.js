@@ -46,7 +46,3 @@ class Stack {
     }
 }
 
-const pilha = new Stack()
-pilha.addItem('Ayrton')
-console.log(pilha.removeItem())
-
